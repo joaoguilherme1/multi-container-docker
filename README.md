@@ -1,16 +1,20 @@
 # Dockerize fullstack-app
 
-This repo was created based in a course on Udemy called Docker and Kubernetes: The Complete Guide
+This repo was created based in a course on Udemy called <a href="https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide/">Docker and Kubernetes: The Complete Guide</a>
 
 ## App structure
 
+Deployment app architecture
 
+![image-deploy](img/app-deploy.png)
 
-!(image-course)[img/app-structure.png]
+Development app architecture explanation
+
+![image-course](img/app-structure.png)
 
 Workflow to deployment
 
-!(deployment)[img/deployment.png]
+![deployment](img/deployment.png)
 
 ## Running the project
 
