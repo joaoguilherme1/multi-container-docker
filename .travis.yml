@@ -1,0 +1,22 @@
+language: generic
+
+sudo: required
+serives:
+  - docker
+
+before_install:
+  - docker build -t joaoguilherme1/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true joaoguilherme1/react-test npm test -- --coverage
+
+after_success:
+  - docker build -t joaoguilherme1/multi-client ./client
+  - docker build -t joaoguilherme1/multi-nginx ./nginx
+  - docker build -t joaoguilherme1/multi-server ./server
+  - docker build -t joaoguilherme1/multi-worker ./worker
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push joaoguilherme1/multi-client
+  - docker push joaoguilherme1/multi-nginx
+  - docker push joaoguilherme1/multi-server
+  - docker push joaoguilherme1/multi-worker
